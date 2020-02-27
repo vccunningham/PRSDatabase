@@ -76,6 +76,14 @@ namespace PRSLibrary {
 
 
             });
+
+            model.Entity<RequestLine>(e => {
+                e.ToTable("RequestLine");
+                e.HasKey(x => x.Id);
+                e.Property(x => x.ProductId).IsRequired();
+                e.Property(x => x.RequestId).IsRequired();
+                e.Property(x => x.Quantity).IsRequired();
+            });
         }
 
 
