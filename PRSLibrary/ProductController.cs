@@ -26,7 +26,7 @@ namespace PRSLibrary {
                 } catch (DbUpdateException ex) {
                     throw new Exception("PartNbr must be unique", ex);
                 } catch (Exception ex) {
-                    throw;
+                    throw ex;
                 }
                 return product;
             }
@@ -41,7 +41,7 @@ namespace PRSLibrary {
                 } catch (DbUpdateException ex) {
                     throw new Exception("PartNbr must be unique", ex);
                 } catch (Exception ex) {
-                    throw;
+                    throw ex;
                 }
                 return true;
                 //if it doesnt have an exception, it means it worked

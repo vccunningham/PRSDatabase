@@ -25,7 +25,7 @@ namespace PRSLibrary {
             } catch (DbUpdateException ex) {
                 throw new Exception("Code must be unique", ex);
             } catch (Exception ex) {
-                throw;
+                throw ex;
             }
             return vendor;
         }
@@ -40,7 +40,7 @@ namespace PRSLibrary {
             } catch (DbUpdateException ex) {
                 throw new Exception("Code must be unique", ex);
             } catch (Exception ex) {
-                throw;
+                throw ex;
             }
             return true;
             //if it doesnt have an exception, it means it worked
