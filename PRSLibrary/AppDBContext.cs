@@ -11,6 +11,7 @@ namespace PRSLibrary {
         public virtual DbSet<Vendor> Vendors { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Request> Requests { get; set; }
+        public virtual DbSet<RequestLine> RequestLines { get; set; }
 
         public AppDbContext() { }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
@@ -35,7 +36,7 @@ namespace PRSLibrary {
                 e.Property(x => x.PartNbr).HasMaxLength(30).IsRequired();
                 e.Property(x => x.Name).HasMaxLength(30).IsRequired();
                 e.Property(x => x.Price).HasColumnType("decimal(11,2)");
-                e.Property(x => x.Unit).HasMaxLength(30);
+                e.Property(x => x.Unit).HasMaxLength(30).IsRequired();
                 e.Property(x => x.PhotoPath).HasMaxLength(255).IsRequired();
                 //e.HasOne(x => x.VendorId);
             });

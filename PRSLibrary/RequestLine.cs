@@ -17,7 +17,7 @@ namespace PRSLibrary {
         public virtual Request Request { get; set; }
         public virtual Product Product { get; set; }
 
-        public virtual List<Request> Requests { get; set; }
+        
 
         public override string ToString()
             => $"{Id}/{Request.Description}/{Product.PartNbr}:{Product.Name}:{Product.Price}/{Quantity}/{Quantity * Product.Price}";

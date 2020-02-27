@@ -9,7 +9,8 @@ namespace PRSLibrary {
 
         private AppDbContext context = new AppDbContext();
 
-        public IEnumerable<User> GetAll() {
+        public List<User> GetAll() {
+
             return context.Users.ToList();
         }
         public User GetByPk(int id) {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace PRSLibrary {
     public class Product {
@@ -14,7 +15,8 @@ namespace PRSLibrary {
         public int VendorId { get; set; }
 
         public virtual List<RequestLine> RequestLines { get; set; }
-
+        public virtual List<Vendor> Vendors { get; set; }
+        
         public Product() {
 
         }

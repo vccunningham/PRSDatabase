@@ -1,12 +1,16 @@
 ﻿using PRSLibrary;
 using System;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace PRSDatabase {
     class Program {
         static void Main(string[] args) {
+            
             var context = new AppDbContext();
-
+            {
+                
+            }
             var userCtrl = new UserController();
             userCtrl.GetAll().ToList().ForEach(u => Console.WriteLine(u));
             Console.WriteLine(userCtrl.GetByPk(1));
@@ -32,8 +36,8 @@ namespace PRSDatabase {
 
             context.AddRange(product1, product2, product3, product4, product5);
             context.SaveChanges();
-            if (rowsAffected != 5) throw new Exception("Five products added");
-            Console.WriteLine("Added 5 products");
+            //if (rowsAffected != 5) throw new Exception("Five products added");
+            //Console.WriteLine("Added 5 products");
         }
      
             //AddProducts(context);

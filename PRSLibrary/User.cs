@@ -16,6 +16,7 @@ namespace PRSLibrary {
         public override string ToString() {
             return $"{Id}/{Username}/{Password}/{Firstname}/{Lastname}/{Phone}/{Email}/{IsReviewer}/{IsAdmin}";
         }
+        public virtual Request Requests {get; set;}
 
 
         public User() {
