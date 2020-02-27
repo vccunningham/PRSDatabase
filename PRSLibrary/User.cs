@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PRSLibrary {
     public class User {
@@ -16,7 +17,7 @@ namespace PRSLibrary {
         public override string ToString() {
             return $"{Id}/{Username}/{Password}/{Firstname}/{Lastname}/{Phone}/{Email}/{IsReviewer}/{IsAdmin}";
         }
-        public virtual Request Requests {get; set;}
+        public virtual IEnumerable<Request> Requests {get; set;}
 
 
         public User() {

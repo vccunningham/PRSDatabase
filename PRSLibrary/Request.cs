@@ -18,7 +18,7 @@ namespace PRSLibrary {
         public override string ToString() => $"{Id}/{Description}/{Justification}/{RejectionReason}/{DeliveryMode}/{Status}/{Total}/{UserId}";
 
         public virtual List<RequestLine> RequestLines { get; set; }
-        public virtual List<User> Users { get; set; }
+        public virtual User User { get; set; }
 
         public Request() {
 
