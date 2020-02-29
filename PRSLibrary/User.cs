@@ -15,7 +15,7 @@ namespace PRSLibrary {
         public bool IsAdmin { get; set; }
 
         public override string ToString() {
-            return $"{Id}/{Username}/{Password}/{Firstname}/{Lastname}/{Phone}/{Email}/{IsReviewer}/{IsAdmin}";
+            return $"{Email}/{Username}/{Password}/{Firstname}/{Lastname}/{Phone}/{Email}/{IsReviewer}/{IsAdmin}";
         }
         public virtual IEnumerable<Request> Requests {get; set;}
 

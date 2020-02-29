@@ -7,9 +7,23 @@ using System.Text;
 namespace PRSLibrary {
     public class UserController {
 
-        private AppDbContext context = new AppDbContext();
+        private readonly AppDbContext context = new AppDbContext();
 
-        public List<User> GetAll() {
+        public User Login(string username, string password) {
+            return context.Users.SingleOrDefault(u => u.Username == username && u.Password == password);
+           
+            //another method
+            //var user = from u in context.Users
+                        //where u.Username == username && u.Password == password
+                        //select u;
+                 //return user.FirstOrDefault();
+            // FirstOrDefault calls a collection but the first in the collection
+            //SingleOrDefault calls 1 single sequence
+            
+            //SingleOrDefualt returns 1 user only
+        }
+
+        public IEnumerable<User> GetAll() {
 
             return context.Users.ToList();
         }
@@ -25,9 +39,9 @@ namespace PRSLibrary {
             try {
                 context.SaveChanges();
             } catch(DbUpdateException ex) {
-                throw new Exception("Username must be unique", ex);            
-            } catch(Exception ex) {
-                throw ex;
+                throw new Exception("Username must be unique", ex);
+            } catch (Exception) {
+                throw;
             }
             return user;
         }
@@ -41,8 +55,8 @@ namespace PRSLibrary {
                 context.SaveChanges();
             } catch (DbUpdateException ex) {
                 throw new Exception("Username must be unique", ex);
-            } catch (Exception ex) {
-                throw ex;
+            } catch (Exception) {
+                throw;
             }
             return true;
             //if it doesnt have an exception, it means it worked
